@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0 20px;
+    }
+
+    li {
+      display: inline-block;
+      margin: 0 -20px;
+      padding: 0 20px;
+      border: 1px solid royalblue;
+      pointer-events: none;
+    }
+    li.active { 
+      background-color: royalblue;
+      color: white;
+    }
+
+    .style-container {
+      padding: 0 20px;
+      pointer-events: auto;
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li class='active'><div class="style-container">aaa</div></li>
+    <li><div class="style-container">bbb</div></li>
+    <li><div class="style-container">ccc</div></li>
+    <li><div class="style-container">ddd</div></li>
+  </ul>
+</body>
+<script>
+  document.querySelectorAll('.style-container').forEach((value) => {
+    value.addEventListener('mouseenter', function (e) {
+      document.querySelector('.active').classList.remove('active');
+      e.target.parentNode.classList.add('active')
+    })
+  })
+</script>
+</html>
