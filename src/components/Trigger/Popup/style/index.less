@@ -1,0 +1,23 @@
+@import './../../../../OS.less';
+
+.popup {
+  position: absolute;
+  /* top should define in script */
+  top: @menuBarHeight;
+  background-color: rgba(255, 255, 255, .8);
+  backdrop-filter: blur(100px);
+  padding: @gap;
+  border-radius: @gap;
+  min-width: 200px;
+}
+
+.popup .menu-item {
+  font-size: @fontSize;
+  padding: 2px 2*@gap;
+  border-radius: @gap;
+}
+
+.popup .menu-item.active {
+  background-color: rgba(65, 105, 225, .8);
+  color: white;
+}

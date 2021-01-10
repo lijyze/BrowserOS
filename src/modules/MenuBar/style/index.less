@@ -1,0 +1,50 @@
+@width: 10px;
+@import './../../../OS';
+
+.flexbox {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+
+#menu-bar {
+  padding: 0 @width;
+  height: @menuBarHeight;
+  display: flex;
+  .flexbox();
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(100px);
+  color: #fff;
+  cursor: default;
+}
+
+#menu-bar-menu {
+  height: @menuBarHeight;
+  .flexbox();
+  align-items: center;
+}
+
+#menu-bar-menu>li:first-child {
+  font-size: 18px;
+}
+
+#menu-bar .menu-item {
+  height: @menuBarHeight;
+  padding: 0 4px;
+  margin: 0 -4px;
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+#menu-bar .menu-item.active {
+  background-color: rgba(255, 255, 255, .2);
+}
+
+#menu-bar .menu-item .field-name-container {
+  height: @menuBarHeight;
+  line-height: @menuBarHeight;
+  padding: 0 11px;
+  pointer-events: auto;
+}
+
