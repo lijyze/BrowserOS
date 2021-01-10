@@ -1,4 +1,4 @@
-import React, {Dispatch, useEffect} from 'react';
+import React from 'react';
 import {connect} from 'react-redux'
 
 import Docker from './modules/Docker';
