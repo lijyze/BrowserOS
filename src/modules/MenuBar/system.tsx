@@ -8,6 +8,7 @@ export type MenuData = {
   parentId?: number,
   parentName?: string,
   children?: (MenuData | Divider)[],
+  event?: () => {}
 }
 
 
@@ -15,47 +16,48 @@ export const divider: Divider = {
   divider: true
 }
 
+export const systemIconData = {
+  fieldId: 1000,
+  fieldName: '',
+  children: [
+    {
+      fieldId: 100001,
+      fieldName: '关于',
+      parentId: 1000,
+      parentName: '',
+    }, 
+    divider, 
+    {
+      fieldId: 100002,
+      fieldName: '系统偏好设置…',
+      parentId: 1000,
+      parentName: '',
+    }, 
+    divider, 
+    {
+      fieldId: 100003,
+      fieldName: '最近使用的项目',
+      parentId: 1000,
+      parentName: '',
+    }, 
+    divider,
+    {
+      fieldId: 100004,
+      fieldName: '锁定屏幕',
+      parentId: 1000,
+      parentName: '',
+    }, 
+    {
+      fieldId: 100005,
+      fieldName: '退出登陆',
+      parentId: 1000,
+      parentName: '',
+    }, 
+  ]
+}
+
 // TODO: 系统默认(Finder)的菜单栏，后续会放到app-Finder中
-export const menuData: (MenuData | Divider)[] = [
-  {
-    fieldId: 1,
-    fieldName: '',
-    children: [
-      {
-        fieldId: 101,
-        fieldName: '关于',
-        parentId: 1,
-        parentName: '',
-      }, 
-      divider, 
-      {
-        fieldId: 102,
-        fieldName: '系统偏好设置…',
-        parentId: 1,
-        parentName: '',
-      }, 
-      divider, 
-      {
-        fieldId: 103,
-        fieldName: '最近使用的项目',
-        parentId: 1,
-        parentName: '',
-      }, 
-      divider,
-      {
-        fieldId: 104,
-        fieldName: '锁定屏幕',
-        parentId: 1,
-        parentName: '',
-      }, 
-      {
-        fieldId: 105,
-        fieldName: '退出登陆',
-        parentId: 1,
-        parentName: '',
-      }, 
-    ]
-  },
+export const defaultMenuData: (MenuData | Divider)[] = [
   {
     fieldId: 2,
     fieldName: 'Finder',

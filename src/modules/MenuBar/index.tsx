@@ -6,27 +6,28 @@ import Time from './time'
 
 import {MenubarState} from './../../store/menubar/types'
 import {setMenubarActive, setMenuItemActive} from './../../store/menubar/actions'
-import {menuData, MenuData, Divider} from '../../OSconfig'
+import {systemIconData, defaultMenuData, MenuData, Divider} from './system'
 
 import './style/index.less'
+
+interface MenubarProperty {
+  appMap: Map<string, {menu: any}>
+}
 
 interface rawState {
   menubar: MenubarState
 }
 
-const MenuBar: React.FC = (props) => {
+const MenuBar: React.FC<MenubarProperty> = (props) => {
   const isMenuBarActive = useSelector((store:rawState) => (store.menubar.isMenubarActive))
   const activeItem = useSelector((store: rawState) => (store.menubar.activeItem))
+  const activeApp = useSelector((state: any) => (state.global.processes[0]))
   const dispatch = useDispatch();
 
   // 点击菜单栏将菜单栏设置活跃状态
   const menuClickHandler = (event: React.MouseEvent) => {
     dispatch(setMenubarActive(true))
     event.stopPropagation()
-  }
-
-  const menuItemClickHandler = (e: React.MouseEvent) => {
-    console.log(e)
   }
 
   const menuItemMouseOverHandler = (id: number, parentId: number | undefined) => {
@@ -56,6 +57,13 @@ const MenuBar: React.FC = (props) => {
           key={index}
           onMouseOver={() => {menuItemMouseOverHandler((value as MenuData).fieldId, (value as MenuData).parentId)}}
           active={activeItem.includes(value.fieldId)}
+          onClick={(event) => {
+            (value as MenuData).event?.()
+
+            // 关闭菜单
+            dispatch(setMenubarActive(false))
+            event.stopPropagation()
+          }}
         >
           {value.fieldName}
         </Menu.Item>
@@ -63,9 +71,24 @@ const MenuBar: React.FC = (props) => {
     })
   )
 
+  const systemIcon = (
+    <Menu.SubMenu 
+      title={<div className='field-name-container'></div>}
+      key={1000}
+      active={isMenuBarActive && activeItem.includes(systemIconData.fieldId)}
+      className={'menu-item'}
+      onMouseOver={() => {menuItemMouseOverHandler(systemIconData.fieldId, undefined)}}
+    >
+      {convertDataToLayout(systemIconData.children)}
+    </Menu.SubMenu>
+  )
+
+  const menuData: MenuData[] = activeApp? props.appMap.get(activeApp)!.menu: defaultMenuData
+
   return (
     <div id='menu-bar'>
-      <Menu id='menu-bar-menu' mode='horizontal' onClick={menuClickHandler} onItemClick={menuItemClickHandler}>
+      <Menu id='menu-bar-menu' mode='horizontal' onClick={menuClickHandler}>
+        {systemIcon}
         {menuData.map((value, index) => {
           // 有子项
           if ((value as MenuData).children) {
@@ -76,7 +99,7 @@ const MenuBar: React.FC = (props) => {
                 active={isMenuBarActive && activeItem.includes((value as MenuData).fieldId)}
                 className={'menu-item'}
                 onMouseOver={() => {menuItemMouseOverHandler((value as MenuData).fieldId, (value as MenuData).parentId)}}
-                >
+              >
                 {convertDataToLayout((value as MenuData).children as MenuData[])}
               </Menu.SubMenu>
             )

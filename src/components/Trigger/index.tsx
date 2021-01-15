@@ -1,5 +1,4 @@
 import React, {ReactElement, ReactNode} from 'react'
-import ReactDOM from 'react-dom'
 import Popup from './Popup'
 
 export interface TriggerProperty {

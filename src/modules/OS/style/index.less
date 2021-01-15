@@ -1,0 +1,54 @@
+@full: 100%;
+@gap: 5px;
+@menuBarHeight: 25px;
+@fontSize: 14px;
+
+#os {
+  font-size: @fontSize;
+  min-width: @full;
+  min-height: @full;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  user-select: none;
+  overflow: hidden;
+}
+
+
+.window {
+  border-radius: 10px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.window .window-tool {
+  height: 30px;
+  background-color: #e6e6e6;
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+.window .window-tool button {
+  border: 0 none;
+  outline: none;
+  vertical-align: middle;
+}
+
+.window .window-tool .window-tool-close {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #fa5f5f;
+  border-radius: 50%;
+}
+
+.window .window-content {
+  height: calc(100% - 30px);
+  position: relative;
+}
+
+.window .window-content>* {
+  display: block
+}
+

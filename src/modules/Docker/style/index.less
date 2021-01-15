@@ -1,13 +1,30 @@
+@iconSize: 60px;
+
 #docker {
-  height: 60px;
   padding: 5px;
-  width: 400px;
   position: absolute;
   bottom: 2px;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
   border-radius: 20px;
-  margin: auto;
-  backdrop-filter: blur(100px);
+  backdrop-filter: blur(20px);
   background-color: rgba(255, 255, 255, .25);
+}
+
+#docker>* {
+  vertical-align: middle;
+}
+
+#docker .docker-divider {
+  display: inline-block;
+  width: 1px;
+  height: @iconSize;
+  margin: 0 10px;
+  background-color: #000;
+}
+
+#docker .docker-icon {
+  padding-bottom: 5px;
+  width: @iconSize;
+  height: @iconSize;
 }

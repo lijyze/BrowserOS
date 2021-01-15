@@ -31,7 +31,7 @@ class Menu extends React.Component<MenuProps> {
 
     const children = React.Children.map(this.props.children, (child) => (
       React.cloneElement(child as React.ReactElement, {
-        onClick: onItemClick
+        onItemClick,
       })
     ))
 

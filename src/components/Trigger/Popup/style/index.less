@@ -1,14 +1,16 @@
-@import './../../../../OS.less';
+@import './../../../../modules/OS/style/index.less';
 
 .popup {
   position: absolute;
   /* top should define in script */
   top: @menuBarHeight;
-  background-color: rgba(255, 255, 255, .8);
+  background-color: rgba(220, 220, 220, .8);
   backdrop-filter: blur(100px);
   padding: @gap;
   border-radius: @gap;
   min-width: 200px;
+  box-shadow: 0 0 10px #888;
+  backdrop-filter: blur(20px);
 }
 
 .popup .menu-item {

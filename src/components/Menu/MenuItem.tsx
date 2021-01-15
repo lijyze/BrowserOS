@@ -6,6 +6,7 @@ interface MenuItemProperty {
   elementRef?: RefObject<HTMLElement>,
   onMouseOver?: React.MouseEventHandler,
   onClick?: React.MouseEventHandler,
+  onItemClick?: React.MouseEventHandler,
 }
 
 class MenuItem extends React.Component<MenuItemProperty> {
@@ -17,6 +18,7 @@ class MenuItem extends React.Component<MenuItemProperty> {
       onMouseOver,
       children,
       onClick,
+      onItemClick,
       active
     } = this.props;
 
@@ -28,7 +30,10 @@ class MenuItem extends React.Component<MenuItemProperty> {
         className={finalClass}
         ref={elementRef as RefObject<HTMLLIElement>}
         onMouseOver={onMouseOver}
-        onClick={onClick}
+        onClick={(event) => {
+          onClick?.(event)
+          onItemClick?.(event)
+        }}
       >
         {children}
       </li>

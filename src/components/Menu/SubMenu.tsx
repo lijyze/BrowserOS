@@ -7,7 +7,7 @@ interface SubMenuProperty {
   className?: string,
   active?: boolean,
   trigger?: 'hover' | 'click' | 'contextMenu',
-  onClick?: MouseEventHandler,
+  onItemClick?: MouseEventHandler,
   onMouseOver?:MouseEventHandler
 }
 
@@ -26,7 +26,7 @@ class SubMenu extends React.Component<SubMenuProperty> {
       className,
       trigger = 'hover',
       active,
-      onClick,
+      onItemClick,
       onMouseOver,
     } = this.props
 
@@ -43,7 +43,7 @@ class SubMenu extends React.Component<SubMenuProperty> {
 
     return (
       <Trigger
-        popup={<Menu onItemClick={onClick}>{popup}</Menu>}
+        popup={<Menu onItemClick={onItemClick}>{popup}</Menu>}
         action={trigger}
         forceRender={active}
         alignTarget={this.alignTargetRef as any}
