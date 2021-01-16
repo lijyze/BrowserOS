@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "./static/css/main.b4dfa075.chunk.css",
+    "main.js": "./static/js/main.e4f4ed26.chunk.js",
+    "main.js.map": "./static/js/main.e4f4ed26.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.82218d53.js",
+    "runtime-main.js.map": "./static/js/runtime-main.82218d53.js.map",
+    "static/js/2.19e23891.chunk.js": "./static/js/2.19e23891.chunk.js",
+    "static/js/2.19e23891.chunk.js.map": "./static/js/2.19e23891.chunk.js.map",
+    "static/js/3.9ed53522.chunk.js": "./static/js/3.9ed53522.chunk.js",
+    "static/js/3.9ed53522.chunk.js.map": "./static/js/3.9ed53522.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/main.b4dfa075.chunk.css.map": "./static/css/main.b4dfa075.chunk.css.map",
+    "static/js/2.19e23891.chunk.js.LICENSE.txt": "./static/js/2.19e23891.chunk.js.LICENSE.txt",
+    "static/media/BigSur.4684cd45.jpg": "./static/media/BigSur.4684cd45.jpg",
+    "static/media/TrashIcon.5db4007b.png": "./static/media/TrashIcon.5db4007b.png",
+    "static/media/icon-sweeper.ff6d272b.png": "./static/media/icon-sweeper.ff6d272b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.82218d53.js",
+    "static/js/2.19e23891.chunk.js",
+    "static/css/main.b4dfa075.chunk.css",
+    "static/js/main.e4f4ed26.chunk.js"
+  ]
+}
